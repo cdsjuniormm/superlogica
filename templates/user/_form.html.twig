@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="flex justify-center mt-5 w-full">
+        <div class="bg-green-800 text-white rounded full h-6 w-24 text-center">
+            <button class="btn">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+{{ form_end(form) }}
+
+
+{% block stylesheets %}
+<style rel="stylesheet">
+form > div#user {
+    display: flex;
+    flex-direction: column
+}
+</style>
+{% endblock %}
+
+
+{% block javascripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.cep').mask('00000-000');
+});
+
+function removeSpace(prEvent, prThis) {
+    $(prThis).val($(prThis).val().replace(' ', ''));
+}
+</script>
+{% endblock %}

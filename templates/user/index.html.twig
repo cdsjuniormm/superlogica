@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <div class="w-full">
+        <table class="table w-full border border-colapse text-center">
+            <thead>
+                <tr>
+                    <th class="border">Id</th>
+                    <th class="border">Name</th>
+                    <th class="border">UserName</th>
+                    <th class="border">ZipCode</th>
+                    <th class="border">Email</th>
+                    <th class="border">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td class="border">{{ user.id }}</td>
+                    <td class="border">{{ user.name }}</td>
+                    <td class="border">{{ user.userName }}</td>
+                    <td class="border">{{ user.zipCode }}</td>
+                    <td class="border">{{ user.email }}</td>
+                    <td class="border w-52">
+                        <div class="float-left text-white bg-green-800 rounded full h-6 w-24 text-center ml-1">
+                            <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                        </div>
+                        <div class="float-right text-white bg-gray-500 rounded full h-6 w-24 text-center mr-1">
+                            <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="w-1/6 mr-5">
+        <div class="float-right text-white bg-black rounded full h-6 w-24 text-center">
+            <a href="{{ path('user_new') }}">Create new</a>
+        </div>
+    </div>
+{% endblock %}

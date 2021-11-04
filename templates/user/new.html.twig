@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+
+    <div class="w-full">
+        {{ include('user/_form.html.twig') }}
+    </div>
+
+    <div class="w-1/6 mr-5">
+        <div class="float-right text-white bg-black rounded full h-6 w-24 text-center">
+            <a href="{{ path('user_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}
