@@ -33,7 +33,7 @@ class ContainsCorrectFormatZipCodeValidator extends ConstraintValidator
             // ...
         }
         
-        if (strlen((int) str_replace('-', '', $value)) !== 8) {
+        if (!preg_match('/^[0-9]{5,5}([- ]?[0-9]{3,3})?$/', $value)) {
             // the argument must be a string or an object implementing __toString()
             $this->context->buildViolation($constraint->message)
                 ->addViolation();

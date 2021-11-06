@@ -27,3 +27,7 @@ Route: user/
 ```
 Route: exercise/
 ```
+### Exercise 3
+```
+./dump/exercise3.sql
+```
